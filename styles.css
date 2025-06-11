@@ -31,20 +31,92 @@ nav {
 
 .nav-links {
     display: flex;
-    justify-content: center;
     gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
 }
 
-nav a {
+.nav-links a {
     color: #1d1d1f;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
 }
 
-nav a:hover {
+.nav-links a:hover {
     color: #0066cc;
+}
+
+.nav-links a.active {
+    color: #0066cc;
+    font-weight: 600;
+}
+
+/* Keywords Navigation Link */
+.nav-links a[href="keywords.html"] {
+    background: #0066cc;
+    color: white;
+}
+
+.nav-links a[href="keywords.html"]:hover {
+    background: #004499;
+    color: white;
+}
+
+.nav-links a[href="keywords.html"].active {
+    background: #004499;
+    color: white;
+    font-weight: 600;
+}
+
+/* Keywords Callout */
+.keywords-callout {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.keywords-callout a {
+    display: inline-block;
+    background: #0066cc;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.keywords-callout a:hover {
+    background: #004499;
+    transform: translateY(-1px);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .keywords-callout a {
+        background: #2997ff;
+    }
+
+    .keywords-callout a:hover {
+        background: #47a7ff;
+    }
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .keywords-callout {
+        margin: 1.5rem 1rem;
+    }
+
+    .keywords-callout a {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.95rem;
+    }
 }
 
 /* Hero Section */
@@ -107,17 +179,6 @@ nav a:hover {
 }
 
 .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: 145px;
-    top: 0;
-    bottom: -3rem;
-    width: 2px;
-    background: #e5e5e5;
-    z-index: -1;
-}
-
-.timeline-section .timeline-item:last-child::before {
     display: none;
 }
 
@@ -136,12 +197,11 @@ nav a:hover {
     border-radius: 20px;
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    transform: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .content h3 {
@@ -284,7 +344,77 @@ footer a:hover {
 
     .nav-links {
         gap: 1rem;
+        flex-wrap: wrap;
     }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    .keywords-callout {
+        margin: 1.5rem 1rem;
+    }
+
+    .keywords-callout a {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Keywords Layout */
+.keywords-summary {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.keywords-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.keyword-group {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.keyword-group h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1d1d1f;
+    border-bottom: 2px solid #0066cc;
+    padding-bottom: 0.5rem;
+}
+
+.keyword {
+    background: rgba(0, 102, 204, 0.1);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.keyword:hover {
+    transform: translateY(-2px);
+}
+
+.keyword .term {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1d1d1f;
+}
+
+.keyword .definition {
+    display: block;
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.4;
 }
 
 /* Dark Mode Support */
@@ -294,64 +424,116 @@ footer a:hover {
         color: #f5f5f7;
     }
 
-    header {
-        background: rgba(0, 0, 0, 0.8);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    .keyword-group {
+        background: rgba(0, 0, 0, 0.3);
     }
 
-    nav a {
+    .keyword-group h2 {
         color: #f5f5f7;
-    }
-
-    .hero {
-        background: linear-gradient(to bottom, #000, #1d1d1f);
-    }
-
-    .hero h1 {
-        background: linear-gradient(135deg, #f5f5f7 0%, #86868b 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .content {
-        background: #1d1d1f;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    }
-
-    .content h3 {
-        color: #f5f5f7;
-    }
-
-    .what-happened {
-        color: #a1a1a6;
+        border-bottom-color: #2997ff;
     }
 
     .keyword {
-        background: rgba(0, 102, 204, 0.2);
+        background: rgba(41, 151, 255, 0.1);
+    }
+
+    .keyword .term {
+        color: #f5f5f7;
     }
 
     .keyword .definition {
         color: #a1a1a6;
     }
+}
 
-    footer {
-        background: #000;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .keywords-summary {
+        padding: 1rem;
     }
 
-    footer a {
-        color: #2997ff;
+    .keywords-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
-    footer a:hover {
-        color: #47a7ff;
+    .keyword-group {
+        padding: 1.5rem;
     }
 
-    .hero .author a {
-        color: #2997ff;
+    .keyword {
+        padding: 0.8rem;
     }
 
-    .hero .author a:hover {
-        color: #47a7ff;
+    .keyword .term {
+        font-size: 0.95rem;
+    }
+
+    .keyword .definition {
+        font-size: 0.9rem;
+    }
+}
+
+/* Active Navigation Link */
+.nav-links .active {
+    color: #0066cc;
+    font-weight: 600;
+}
+
+/* Keyword Groups */
+.keyword-group {
+    margin-bottom: 3rem;
+}
+
+.keyword-group h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #1d1d1f;
+}
+
+/* Print Styles */
+@media print {
+    @page {
+        margin: 1cm;
+    }
+
+    body {
+        background: white;
+    }
+
+    nav, footer {
+        display: none;
+    }
+
+    .hero {
+        padding: 2rem 0;
+    }
+
+    .hero h1 {
+        color: black;
+        -webkit-text-fill-color: black;
+    }
+
+    .content, .keywords-summary {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #e5e5e5;
+    }
+
+    .keyword {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    .keyword-group {
+        break-before: page;
+        page-break-before: always;
+    }
+
+    .keyword-group:first-child {
+        break-before: avoid;
+        page-break-before: avoid;
     }
 } 
