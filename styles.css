@@ -68,6 +68,22 @@ nav a:hover {
     color: #86868b;
 }
 
+.hero .author {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.hero .author a {
+    color: #0066cc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.hero .author a:hover {
+    color: #004499;
+    text-decoration: underline;
+}
+
 /* Timeline Section */
 .timeline-section {
     max-width: 1000px;
@@ -328,6 +344,14 @@ footer a:hover {
     }
 
     footer a:hover {
+        color: #47a7ff;
+    }
+
+    .hero .author a {
+        color: #2997ff;
+    }
+
+    .hero .author a:hover {
         color: #47a7ff;
     }
 } 
