@@ -363,27 +363,27 @@ footer a:hover {
 
 /* Keywords Layout */
 .keywords-summary {
-    padding: 2rem;
-    max-width: 1200px;
+    padding: 2rem 1rem;
+    width: 100%;
+    max-width: none;
     margin: 0 auto;
 }
 
-.keywords-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
 .keyword-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* exactly 3 columns on desktop */
+    gap: 1rem 1.5rem;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
     border-radius: 12px;
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
 
 .keyword-group h2 {
-    font-size: 1.5rem;
+    grid-column: 1 / -1; /* span full row */
+    font-size: 1.6rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
     color: #1d1d1f;
@@ -395,7 +395,6 @@ footer a:hover {
     background: rgba(0, 102, 204, 0.1);
     border-radius: 8px;
     padding: 1rem;
-    margin-bottom: 1rem;
     transition: transform 0.2s ease;
 }
 
@@ -446,31 +445,11 @@ footer a:hover {
     }
 }
 
-/* Mobile Optimization */
+/* Mobile: single column */
 @media (max-width: 768px) {
-    .keywords-summary {
-        padding: 1rem;
-    }
-
-    .keywords-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
     .keyword-group {
+        grid-template-columns: 1fr;
         padding: 1.5rem;
-    }
-
-    .keyword {
-        padding: 0.8rem;
-    }
-
-    .keyword .term {
-        font-size: 0.95rem;
-    }
-
-    .keyword .definition {
-        font-size: 0.9rem;
     }
 }
 
@@ -478,18 +457,6 @@ footer a:hover {
 .nav-links .active {
     color: #0066cc;
     font-weight: 600;
-}
-
-/* Keyword Groups */
-.keyword-group {
-    margin-bottom: 3rem;
-}
-
-.keyword-group h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    color: #1d1d1f;
 }
 
 /* Print Styles */
@@ -535,5 +502,12 @@ footer a:hover {
     .keyword-group:first-child {
         break-before: avoid;
         page-break-before: avoid;
+    }
+}
+
+/* Remove grid settings from previous declarations */
+@media (min-width: 769px) {
+    .keywords-grid {
+        display: block;
     }
 } 
